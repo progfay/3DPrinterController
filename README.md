@@ -24,9 +24,8 @@ $ node port-list.js
 const Printer = require('./lib/Printer')
 
 new Printer({
-  vendorId: undefined,
-  productId: undefined,
-  path: '/dev/tty.Bluetooth-Incoming-Port'
+  vendorId: 'XXXX',
+  productId: 'XXXX'
 })
 ```
 
@@ -43,6 +42,7 @@ const Printer = require('./lib/Printer')
 const main = async () => {
   const printer = new Printer(PRINTER_ID)
   await printer.connect()
+  await printer.initPosition()
 
   await printer.setSpeed(300)
   await printer.moveTo({ x: 100, y: 200, z: 50 })
