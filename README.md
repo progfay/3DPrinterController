@@ -46,6 +46,8 @@ const main = async () => {
 
   await printer.setSpeed(300)
   await printer.moveTo({ x: 100, y: 200, z: 50 })
+  // or send G-Code manually
+  await printer.sengGCode('`G0 X200 Y50 Z200')
 }
 
 main()
